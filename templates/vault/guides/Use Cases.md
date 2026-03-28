@@ -9,21 +9,21 @@ Real-world scenarios for using this vault.
 
 ## Scenario 1: Starting a New Client Engagement
 
-A presale opportunity comes in for consulting with Acme Corp.
+A commercial opportunity comes in for consulting with Acme Corp.
 
 ```
-1. /new-presale Acme Corp Automation
-   --> Creates presales/acme-corp-automation.md
+1. /new-commercial Acme Corp Automation
+   --> Creates commercials/acme-corp-automation.md
    --> Creates people/jane-doe.md for the client contact
-   --> Updates Presales MOC
+   --> Updates Commercials MOC
 
 2. /add-meeting Acme Corp Discovery Call
    --> Records attendees, discussion, next steps
-   --> Links to [[Acme Corp Automation]] presale
+   --> Links to [[Acme Corp Automation]] commercial
 
-3. (Later, when won) Update the presale status to "won" and:
+3. (Later, when won) Update the commercial status to "won" and:
    /new-project Acme Corp Implementation
-   --> Link it back to the presale
+   --> Link it back to the commercial
 ```
 
 ## Scenario 2: Tracking a Multi-Week Project
@@ -55,7 +55,7 @@ Before a meeting with your manager or client:
 
 ```
 "Show me all meetings and tasks related to [[Dashboard Redesign]] in the last 2 weeks"
-"What presales are currently active and what's their last update?"
+"What commercials are currently active and what's their last update?"
 "List all open action items assigned to me"
 ```
 
@@ -83,7 +83,7 @@ Need to report on everything you did:
 ```
 "Summarize all weekly reviews from January through March"
 "List all projects that moved to completed this quarter"
-"Show the timeline of all presale engagements"
+"Show the timeline of all commercial engagements"
 "Count meetings by project for Q1"
 ```
 
@@ -98,7 +98,7 @@ Transitioning a project to someone else:
  - Project overview
  - All meeting decisions
  - Open tasks
- - Related presale history
+ - Related commercial history
  - Linked coding repos"
 ```
 

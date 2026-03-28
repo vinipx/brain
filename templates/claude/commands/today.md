@@ -15,12 +15,12 @@ Read my daily note, tasks, and recent context. Generate a prioritized plan for t
 3. Gather context:
    - Read the **previous 3 daily notes** for carry-over tasks (`- [ ]`), momentum, and patterns.
    - Read all **active projects** (`{{VAULT_FOLDER}}/projects/*.md` with `status: active`) for deadlines or milestones.
-   - Read all **active presales** (`{{VAULT_FOLDER}}/presales/*.md` with `status: active`) for upcoming deliverables.
+   - Read all **active commercials** (`{{VAULT_FOLDER}}/commercials/*.md` with `status: active`) for upcoming deliverables.
    - Check for any **meeting notes** from yesterday that have unresolved action items.
 
 4. Build a prioritized plan:
    - **Must do**: Tasks with deadlines today or overdue carry-overs.
-   - **Should do**: Active project work, presale follow-ups, scheduled meetings.
+   - **Should do**: Active project work, commercial follow-ups, scheduled meetings.
    - **Could do**: Low-priority tasks, exploration, learning.
    - **Carry-over**: Incomplete tasks from previous days with their source.
 
@@ -33,7 +33,7 @@ Read my daily note, tasks, and recent context. Generate a prioritized plan for t
 - [ ] <task> — <why it's urgent>
 
 ### Should Do
-- [ ] <task> — <context from project/presale>
+- [ ] <task> — <context from project/commercial>
 
 ### Could Do
 - [ ] <task> — <context>

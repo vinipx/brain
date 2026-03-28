@@ -23,7 +23,7 @@ You don't always need slash commands. Claude understands the vault structure:
 ```
 "Add a meeting about the roadmap to today's daily"
 "What projects are currently active?"
-"Show me all presales related to test automation"
+"Show me all commercials related to test automation"
 "Create a person note for Maria Garcia from Acme Corp"
 "What did I do last Wednesday?"
 "Find all open tasks across my notes"
@@ -71,7 +71,7 @@ Ask Claude to search rather than browsing manually:
 
 ```
 "Which meetings mentioned the migration?"
-"Show me the presale timeline for Acme Corp"
+"Show me the commercial timeline for Acme Corp"
 "What action items are still open from this week?"
 "Find all notes linked to [[John Smith]]"
 ```
@@ -100,7 +100,7 @@ Run these periodically:
 ## Pro Tips
 
 1. **Start with the daily note** -- it becomes the hub for everything you did that day
-2. **Link aggressively** -- every project mention, person name, and presale reference should be a wiki-link
+2. **Link aggressively** -- every project mention, person name, and commercial reference should be a wiki-link
 3. **Use the MOCs** -- keep them updated so the graph view stays useful
 4. **Let Claude do the bookkeeping** -- creating cross-links, updating MOCs, and generating reviews is where Claude shines
 5. **Ask for summaries** -- "summarize the last 3 meetings about Project X" works because all the data is in the vault

@@ -32,7 +32,7 @@ All commands are run inside Claude Code from your vault's root directory.
 - Appends to today's daily note under `## Meetings`
 - For substantial meetings (many decisions/actions), also creates a standalone note in `meetings/`
 - Automatically creates `people/` notes for new attendees
-- Cross-links to related projects and presales
+- Cross-links to related projects and commercials
 
 ## /new-project
 
@@ -48,18 +48,18 @@ All commands are run inside Claude Code from your vault's root directory.
 - Adds a link to `maps/Projects MOC.md`
 - Mentions the project in today's daily note if it exists
 
-## /new-presale
+## /new-commercial
 
-**Creates a presale engagement note.**
+**Creates a commercial engagement note.**
 
 ```
-/new-presale Acme Corp Test Automation
-/new-presale
+/new-commercial Acme Corp Test Automation
+/new-commercial
 ```
 
 - Asks for client, contact, description
-- Creates `presales/<kebab-name>.md` with timeline table
-- Adds to `maps/Presales MOC.md`
+- Creates `commercials/<kebab-name>.md` with timeline table
+- Adds to `maps/Commercials MOC.md`
 - Creates `people/` notes for contacts
 
 ## /link-coding
@@ -86,7 +86,7 @@ All commands are run inside Claude Code from your vault's root directory.
 
 - Counts notes per folder
 - Summarizes the 3 most recent daily notes
-- Lists all active projects and presales
+- Lists all active projects and commercials
 - Shows open tasks across notes
 - Suggests maintenance actions (missing daily note, stale projects)
 
@@ -99,7 +99,7 @@ All commands are run inside Claude Code from your vault's root directory.
 ```
 
 - Reads the last 5 daily notes
-- Aggregates meetings, completed tasks, open tasks, project/presale activity
+- Aggregates meetings, completed tasks, open tasks, project/commercial activity
 - Creates `daily/YYYY-WNN-review.md`
 
 ---
@@ -116,7 +116,7 @@ These commands turn your vault into an active thinking partner — they read you
 /context
 ```
 
-- Scans active projects, presales, coding refs, recent daily notes, and people
+- Scans active projects, commercials, coding refs, recent daily notes, and people
 - Builds a comprehensive summary of your current state
 - Use at the start of any session where you want Claude to know everything
 
@@ -128,7 +128,7 @@ These commands turn your vault into an active thinking partner — they read you
 /today
 ```
 
-- Reads today's daily note, previous 3 days, active projects, and presales
+- Reads today's daily note, previous 3 days, active projects, and commercials
 - Builds a prioritized plan: Must Do, Should Do, Could Do
 - Surfaces carry-over tasks from previous days
 - Suggests creating a daily note if one doesn't exist
@@ -164,7 +164,7 @@ These commands turn your vault into an active thinking partner — they read you
 
 ```
 /connect machine learning and client onboarding
-/connect React and presale strategy
+/connect React and commercial strategy
 ```
 
 - Searches for both topics and builds a connection graph
@@ -205,7 +205,7 @@ These commands turn your vault into an active thinking partner — they read you
 /ideas
 ```
 
-- Reads daily notes (last 21 days), projects, presales, coding refs, meetings
+- Reads daily notes (last 21 days), projects, commercials, coding refs, meetings
 - Generates ideas across four categories: tools to build, people to reach out to, topics to investigate, things to write
 - Every idea is grounded in specific vault content
 
@@ -254,6 +254,6 @@ These commands turn your vault into an active thinking partner — they read you
 /schedule
 ```
 
-- Reads active projects, presales, recent daily notes, and weekly reviews
+- Reads active projects, commercials, recent daily notes, and weekly reviews
 - Compares stated priorities vs. actual time spent
 - Builds a day-by-day schedule with time budgets and conflict flags

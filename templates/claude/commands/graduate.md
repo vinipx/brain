@@ -18,7 +18,7 @@ Scan recent daily notes for ideas that deserve their own note.
 
 4. For each idea worth graduating, evaluate:
    - Is it mentioned more than once across different days? (stronger candidate)
-   - Does it connect to existing projects, presales, or coding work?
+   - Does it connect to existing projects, commercials, or coding work?
    - Is it developed enough to stand on its own, or does it need more context?
 
 5. Present the candidates to the user before creating files:

@@ -20,7 +20,7 @@ How to use this Obsidian vault with Claude Code for daily knowledge management.
 Morning:  /daily            --> Create today's note
 Meeting:  /add-meeting      --> Record outcomes, decisions, action items
 New work: /new-project      --> Track a new project assignment
-Presale:  /new-presale      --> Log a new client engagement
+Commercial:  /new-commercial      --> Log a new client engagement
 Friday:   /weekly-review    --> Summarize your week
 Anytime:  /vault-status     --> See what's active and what needs attention
 ```
@@ -32,7 +32,7 @@ Everything links together through `[[wiki-links]]`:
 ```
 Daily Note --> mentions a Meeting --> references a Project --> links to a Coding Repo
      |                                       |
-  Person notes                      Presale (if originated from one)
+  Person notes                      Commercial (if originated from one)
 ```
 
 The **Maps of Content** (MOC) in `maps/` are your navigation hubs. Start there when browsing.
@@ -43,7 +43,7 @@ The **Maps of Content** (MOC) in `maps/` are your navigation hubs. Start there w
 |------------------------|-----------------|
 | Today's notes | `daily/YYYY-MM-DD.md` |
 | A project | `projects/` or `maps/Projects MOC` |
-| A presale | `presales/` or `maps/Presales MOC` |
+| A commercial | `commercials/` or `maps/Commercials MOC` |
 | A coding repo reference | `coding/` or `maps/Coding MOC` |
 | A person/contact | `people/` |
 | A standalone meeting | `meetings/` |

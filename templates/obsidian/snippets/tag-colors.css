@@ -1,6 +1,6 @@
 /* Tag colors by category — matches graph view color coding */
 a.tag[href="#/tags/project"]   { background-color: #2d5a27; color: white; }
-a.tag[href="#/tags/presale"]   { background-color: #8a6d00; color: white; }
+a.tag[href="#/tags/commercial"]   { background-color: #8a6d00; color: white; }
 a.tag[href="#/tags/daily"]     { background-color: #1a4a7a; color: white; }
 a.tag[href="#/tags/meeting"]   { background-color: #7a3b1a; color: white; }
 a.tag[href="#/tags/coding"]    { background-color: #4a1a6d; color: white; }

@@ -12,7 +12,7 @@ Practical tips for getting the most out of this vault in Obsidian.
 The graph is color-coded by folder:
 - **Blue** -- Daily notes
 - **Green** -- Projects
-- **Yellow** -- Presales
+- **Yellow** -- Commercials
 - **Purple** -- Coding references
 - **Red** -- MOC index notes
 - **Orange** -- Meetings
@@ -43,7 +43,7 @@ Click the **calendar icon** in the left sidebar (or use `Cmd+P` / `Ctrl+P` then 
 - **Always link projects** when mentioning them: `discussed [[Dashboard Redesign]] timeline`
 - **Link people**: `met with [[John Smith]] about the proposal`
 - **Link from daily notes**: Your daily note should be a hub that links to everything you touched that day
-- **Use the MOCs**: When creating a new project/presale/coding note, add it to the relevant MOC
+- **Use the MOCs**: When creating a new project/commercial/coding note, add it to the relevant MOC
 
 ## Frontmatter Searches
 
@@ -53,12 +53,12 @@ Use Obsidian's search or the Properties panel to filter by metadata:
 [status: active]                --> all active items
 [type: project]                 --> all projects
 [client: Acme Corp]             --> everything related to Acme Corp
-[type: presale][status: active] --> active presales only
+[type: commercial][status: active] --> active commercials only
 ```
 
 ## Tags vs Links
 
-- Use **tags** for categorization: `#project`, `#presale`, `#meeting`
+- Use **tags** for categorization: `#project`, `#commercial`, `#meeting`
 - Use **links** for relationships: `[[Project Name]]`, `[[Person Name]]`
 - Tags group similar notes; links create navigable connections
 
@@ -71,5 +71,5 @@ Open the right sidebar and check **Backlinks** for any note. This shows every ot
 When creating notes manually in Obsidian (not via Claude Code commands):
 1. Create a new note in the appropriate folder
 2. Use `Cmd+P` / `Ctrl+P` then "Insert template"
-3. Select the matching template (daily-note, meeting, project, presale, coding-project)
+3. Select the matching template (daily-note, meeting, project, commercial, coding-project)
 4. Fill in the frontmatter and content

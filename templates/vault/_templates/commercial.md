@@ -1,15 +1,15 @@
 ---
-type: presale
+type: commercial
 status: active
 client: ""
 contact: ""
 start-date: "{{date:YYYY-MM-DD}}"
 value: ""
 probability: ""
-tags: [presale]
+tags: [commercial]
 ---
 
-# Presale: {{title}}
+# Commercial: {{title}}
 
 ## Client
 

@@ -13,7 +13,7 @@ Arguments: $ARGUMENTS
 1. Ask for details if not fully provided:
    - Meeting topic/title (may be in $ARGUMENTS)
    - Attendees
-   - Related project or presale (if any)
+   - Related project or commercial (if any)
    - Key discussion points
    - Decisions made
    - Action items
@@ -36,6 +36,6 @@ Arguments: $ARGUMENTS
 
 4. If the meeting is substantial (3+ decisions or 5+ action items), also create a standalone note at `{{VAULT_FOLDER}}/meetings/YYYY-MM-DD-<kebab-topic>.md` using the meeting template, and link it from the daily note.
 
-5. Add cross-reference wiki-links to any mentioned projects (`[[project-name]]`), presales, or people.
+5. Add cross-reference wiki-links to any mentioned projects (`[[project-name]]`), commercials, or people.
 6. Create person notes in `{{VAULT_FOLDER}}/people/` for any new attendees not yet in the vault.
 7. Confirm what was recorded.

@@ -13,8 +13,8 @@ Scan my vault for emerging patterns and generate fresh ideas.
    - Read all daily notes from `{{VAULT_FOLDER}}/daily/`.
    - Extract: recurring topics, mentioned interests, frustrations, questions asked, ideas hinted at.
 
-   **Projects and presales**:
-   - Read all notes in `{{VAULT_FOLDER}}/projects/` and `{{VAULT_FOLDER}}/presales/`.
+   **Projects and commercials**:
+   - Read all notes in `{{VAULT_FOLDER}}/projects/` and `{{VAULT_FOLDER}}/commercials/`.
    - Note: skills being used, domains being explored, gaps or needs mentioned.
 
    **Coding projects**:

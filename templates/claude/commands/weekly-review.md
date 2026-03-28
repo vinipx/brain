@@ -14,7 +14,7 @@ Generate a summary of the past week's activity.
    - Tasks completed (checked `- [x]`)
    - Tasks still open (unchecked `- [ ]`)
    - Projects referenced
-   - Presales referenced
+   - Commercials referenced
 4. Determine the ISO week number and date range.
 5. Create a review note at `{{VAULT_FOLDER}}/daily/YYYY-WNN-review.md`:
 
@@ -40,8 +40,8 @@ tags: [weekly-review]
 ## Project Activity
 - [[project]] — <what happened>
 
-## Presale Activity
-- [[presale]] — <what happened>
+## Commercial Activity
+- [[commercial]] — <what happened>
 
 ## Reflections
 

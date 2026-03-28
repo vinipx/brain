@@ -14,8 +14,8 @@ Read the vault and summarize my current context.
    - Glob `{{VAULT_FOLDER}}/projects/*.md` and read each one. List those with `status: active` or `status: on-hold`.
    - Note key details: client, priority, timeline, recent progress.
 
-   **Active Presales:**
-   - Glob `{{VAULT_FOLDER}}/presales/*.md` and read each one. List those with `status: active`.
+   **Active Commercials:**
+   - Glob `{{VAULT_FOLDER}}/commercials/*.md` and read each one. List those with `status: active`.
    - Note: client, value, probability, next steps.
 
    **Coding Projects:**
@@ -43,8 +43,8 @@ Read the vault and summarize my current context.
 - [[project]] — status, client, priority, brief description
   - Recent: <latest progress or activity>
 
-### Active Presales
-- [[presale]] — client, stage, next step
+### Active Commercials
+- [[commercial]] — client, stage, next step
 
 ### Coding Projects
 - [[repo]] — language, status

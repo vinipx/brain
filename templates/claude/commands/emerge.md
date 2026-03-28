@@ -9,7 +9,7 @@ Find clusters of related ideas in my vault that could become a project, essay, o
 
 1. Perform a comprehensive vault scan:
    - Read all daily notes from `{{VAULT_FOLDER}}/daily/` (last 30 days).
-   - Read all project notes, presale notes, and coding references.
+   - Read all project notes, commercial notes, and coding references.
    - Read meeting notes and weekly reviews.
    - Scan the people folder for context on collaborators.
 

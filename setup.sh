@@ -149,7 +149,7 @@ create_directories() {
   mkdir -p "$vault_root/_templates"
   mkdir -p "$vault_root/daily"
   mkdir -p "$vault_root/projects"
-  mkdir -p "$vault_root/presales"
+  mkdir -p "$vault_root/commercials"
   mkdir -p "$vault_root/coding"
   mkdir -p "$vault_root/meetings"
   mkdir -p "$vault_root/people"
@@ -213,7 +213,7 @@ install_claude_commands() {
   local cmd_count
   cmd_count=$(ls -1 "$commands_dir"/*.md 2>/dev/null | wc -l | tr -d ' ')
   print_success "$cmd_count slash commands installed"
-  print_success "  Core: /daily, /add-meeting, /new-project, /new-presale, /link-coding, /vault-status, /weekly-review"
+  print_success "  Core: /daily, /add-meeting, /new-project, /new-commercial, /link-coding, /vault-status, /weekly-review"
   print_success "  Thinking: /context, /today, /closeday, /trace, /connect, /ghost, /challenge"
   print_success "  Discovery: /ideas, /graduate, /drift, /emerge, /schedule"
 }
@@ -264,7 +264,7 @@ $VAULT_FOLDER/
 ├── _templates/       # Note templates — do not edit directly, use slash commands
 ├── daily/            # Daily notes: YYYY-MM-DD.md
 ├── projects/         # Work project tracking notes
-├── presales/         # Presale engagement notes
+├── commercials/      # Commercial engagement notes
 ├── coding/           # Reference notes for coding repositories
 ├── meetings/         # Standalone meeting notes (for significant meetings)
 ├── people/           # Person/contact notes for cross-referencing
@@ -277,10 +277,10 @@ $VAULT_FOLDER/
 
 - **Frontmatter**: Every note MUST have YAML frontmatter with at least \`type\` and \`tags\` fields
 - **Links**: Use Obsidian wiki-links \`[[Note Title]]\`. Always link to related projects, people, meetings
-- **Tags**: Use frontmatter \`tags: [tag1, tag2]\`. Common tags: daily, meeting, project, presale, coding, moc, person, weekly-review
+- **Tags**: Use frontmatter \`tags: [tag1, tag2]\`. Common tags: daily, meeting, project, commercial, coding, moc, person, weekly-review
 - **Status values**: active, on-hold, completed, cancelled, won, lost
 - **Filenames**: kebab-case for most notes, \`YYYY-MM-DD\` for daily notes, \`YYYY-WNN-review\` for weekly reviews
-- **Type values**: daily, meeting, project, presale, coding-project, person, moc, weekly-review
+- **Type values**: daily, meeting, project, commercial, coding-project, person, moc, weekly-review
 
 $coding_section
 
@@ -288,14 +288,14 @@ $coding_section
 
 1. Use the appropriate template structure (see \`_templates/\`)
 2. Always add cross-reference wiki-links to related notes
-3. Update the relevant MOC in \`maps/\` (Projects MOC, Presales MOC, or Coding MOC)
+3. Update the relevant MOC in \`maps/\` (Projects MOC, Commercials MOC, or Coding MOC)
 4. For daily notes, name them \`YYYY-MM-DD.md\` in \`daily/\`
 5. For meetings within a daily note, use inline headings; for major meetings, create a separate note in \`meetings/\`
 6. For new people/contacts, create a note in \`people/\`
 
 ## When Searching / Navigating
 
-- Use \`type\` frontmatter to filter notes: \`type: project\`, \`type: presale\`, \`type: daily\`, etc.
+- Use \`type\` frontmatter to filter notes: \`type: project\`, \`type: commercial\`, \`type: daily\`, etc.
 - Grep for \`status: active\` to find active items
 - MOC notes in \`maps/\` are the best entry points for browsing by domain
 - Daily notes are sorted chronologically by filename
@@ -309,9 +309,9 @@ Available project-level commands in \`.claude/commands/\`:
 | \`/daily\` | Create or open today's daily note |
 | \`/add-meeting\` | Record a meeting in today's daily or as standalone |
 | \`/new-project\` | Scaffold a project note, update Projects MOC |
-| \`/new-presale\` | Scaffold a presale engagement, create people notes |
+| \`/new-commercial\` | Scaffold a commercial engagement, create people notes |
 | \`/link-coding\` | Create a reference note from a local repository |
-| \`/vault-status\` | Dashboard: recent activity, active projects/presales, open tasks |
+| \`/vault-status\` | Dashboard: recent activity, active projects/commercials, open tasks |
 | \`/weekly-review\` | Summarize the past 5 work days |
 | \`/context\` | Load your full life and work state into Claude |
 | \`/today\` | Generate a prioritized plan for today |
@@ -359,7 +359,7 @@ print_completion() {
     echo ""
   fi
   echo -e "${BOLD}Installed:${NC}"
-  echo -e "  • 9 vault folders (daily, projects, presales, coding, meetings, people, maps, guides, _templates)"
+  echo -e "  • 9 vault folders (daily, projects, commercials, coding, meetings, people, maps, guides, _templates)"
   echo -e "  • 5 note templates"
   echo -e "  • 3 Maps of Content (navigation hubs)"
   echo -e "  • 5 how-to guides"

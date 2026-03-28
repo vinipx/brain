@@ -14,7 +14,7 @@ Arguments: $ARGUMENTS
 
 2. Search the entire vault for mentions of the topic:
    - Grep `{{VAULT_FOLDER}}/` recursively for the topic and related terms.
-   - Search across all note types: daily notes, projects, presales, meetings, people, coding refs.
+   - Search across all note types: daily notes, projects, commercials, meetings, people, coding refs.
    - Also search for wiki-links containing the topic (`[[*topic*]]`).
 
 3. For each matching note, extract:

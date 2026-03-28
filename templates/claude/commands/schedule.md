@@ -15,8 +15,8 @@ Based on my current projects and priorities, suggest a schedule for this week.
    - Read all notes in `{{VAULT_FOLDER}}/projects/` with `status: active`.
    - Note: priority, deadlines, recent progress, open tasks.
 
-   **Active presales**:
-   - Read all notes in `{{VAULT_FOLDER}}/presales/` with `status: active`.
+   **Active commercials**:
+   - Read all notes in `{{VAULT_FOLDER}}/commercials/` with `status: active`.
    - Note: deadlines, deliverables, next steps.
 
    **Recent daily notes** (last 5):
@@ -66,13 +66,13 @@ Based on my current projects and priorities, suggest a schedule for this week.
 | Project/Area | Suggested Hours | Reason |
 |---|---|---|
 | <project> | N hours | <deadline / priority / momentum> |
-| <presale> | N hours | <next deliverable> |
+| <commercial> | N hours | <next deliverable> |
 | <other> | N hours | <reason> |
 
 ### Flags
 - <deadline approaching for [[project]]>
 - <you said you'd do X but haven't — when will it happen?>
-- <this presale needs attention before it goes cold>
+- <this commercial needs attention before it goes cold>
 ```
 
 5. Be honest about conflicts between what the user says matters and how they're spending time. The goal is clarity, not judgment.
