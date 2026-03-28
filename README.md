@@ -8,7 +8,7 @@
 
 <p align="center">
   Scaffold an Obsidian vault integrated with Claude Code in 30 seconds.<br>
-  Daily notes, project tracking, presale management, coding references — all connected through wiki-links and powered by 7 slash commands.
+  Daily notes, project tracking, presale management, coding references — all connected through wiki-links and powered by 19 slash commands.
 </p>
 
 <p align="center">
@@ -54,10 +54,10 @@
 <table>
   <tr>
     <td align="center" width="33%">
-      <h3>7 Slash Commands</h3>
-      <code>/daily</code> <code>/add-meeting</code> <code>/new-project</code><br>
-      <code>/new-presale</code> <code>/link-coding</code> <code>/vault-status</code><br>
-      <code>/weekly-review</code>
+      <h3>19 Slash Commands</h3>
+      7 core + 12 thinking partner<br>
+      commands that turn your vault<br>
+      into an AI-powered second brain
     </td>
     <td align="center" width="33%">
       <h3>5 Note Templates</h3>
@@ -144,15 +144,36 @@ your-vault/
 
 All commands run inside Claude Code from the vault's root directory.
 
+### Core Commands
+
 | Command | What It Does | Example |
 |---------|-------------|---------|
-| `/daily` | Create or open today's daily note | `/daily` or `/daily Sprint planning at 10am` |
+| `/daily` | Create or open today's daily note | `/daily Sprint planning at 10am` |
 | `/add-meeting` | Record a meeting with attendees, decisions, action items | `/add-meeting Q4 Planning with Alice and Bob` |
 | `/new-project` | Scaffold a project note, update Projects MOC | `/new-project Dashboard Redesign` |
 | `/new-presale` | Create presale engagement, auto-create contact notes | `/new-presale Acme Corp Cloud Migration` |
 | `/link-coding` | Create a reference note from a local code repo | `/link-coding payment-service` |
 | `/vault-status` | Dashboard: recent activity, active work, open tasks | `/vault-status` |
 | `/weekly-review` | Summarize the past 5 work days | `/weekly-review` |
+
+### Thinking Partner Commands
+
+These commands turn your vault into an active thinking partner — they read your notes, find patterns, and help you think better.
+
+| Command | What It Does | Example |
+|---------|-------------|---------|
+| `/context` | Load your full life and work state into Claude | `/context` |
+| `/today` | Generate a prioritized plan for today | `/today` |
+| `/closeday` | End-of-day summary — progress, carry-overs, reflections | `/closeday` |
+| `/trace` | Track how an idea evolved over time across your vault | `/trace microservices migration` |
+| `/connect` | Find unexpected connections between two topics | `/connect machine learning and client onboarding` |
+| `/ghost` | Answer a question in your voice, based on your writing | `/ghost Should we adopt Kubernetes?` |
+| `/challenge` | Pressure-test your beliefs — find contradictions and weak points | `/challenge our pricing strategy` |
+| `/ideas` | Generate ideas: tools to build, people to meet, topics to explore | `/ideas` |
+| `/graduate` | Promote undeveloped ideas from daily notes into standalone files | `/graduate` |
+| `/drift` | Surface recurring themes you might not be aware of | `/drift` |
+| `/emerge` | Find idea clusters coalescing into potential projects | `/emerge` |
+| `/schedule` | Suggest a weekly schedule aligned with your priorities | `/schedule` |
 
 ---
 
@@ -483,7 +504,7 @@ The weekly review surfaces which goals got attention and which were neglected. T
 |---|---|---|
 | **Vault structure** | Design from scratch | Pre-built, tested, 9 folders |
 | **Claude Code integration** | Write your own CLAUDE.md | Auto-generated with your paths |
-| **Slash commands** | None | 7 ready-to-use commands |
+| **Slash commands** | None | 19 ready-to-use commands |
 | **Graph colors** | Manual JSON editing | Pre-configured, 8 color groups |
 | **Cross-linking** | Remember to link manually | Commands auto-link notes + MOCs |
 | **Note templates** | Create your own | 5 structured templates included |

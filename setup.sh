@@ -210,7 +210,12 @@ install_claude_commands() {
       "$cmd_file" > "$commands_dir/$filename"
   done
 
-  print_success "7 slash commands installed: /daily, /add-meeting, /new-project, /new-presale, /link-coding, /vault-status, /weekly-review"
+  local cmd_count
+  cmd_count=$(ls -1 "$commands_dir"/*.md 2>/dev/null | wc -l | tr -d ' ')
+  print_success "$cmd_count slash commands installed"
+  print_success "  Core: /daily, /add-meeting, /new-project, /new-presale, /link-coding, /vault-status, /weekly-review"
+  print_success "  Thinking: /context, /today, /closeday, /trace, /connect, /ghost, /challenge"
+  print_success "  Discovery: /ideas, /graduate, /drift, /emerge, /schedule"
 }
 
 generate_claude_md() {
@@ -308,6 +313,18 @@ Available project-level commands in \`.claude/commands/\`:
 | \`/link-coding\` | Create a reference note from a local repository |
 | \`/vault-status\` | Dashboard: recent activity, active projects/presales, open tasks |
 | \`/weekly-review\` | Summarize the past 5 work days |
+| \`/context\` | Load your full life and work state into Claude |
+| \`/today\` | Generate a prioritized plan for today |
+| \`/closeday\` | End-of-day summary — progress, carry-overs, reflections |
+| \`/trace\` | Track how an idea evolved over time across your vault |
+| \`/connect\` | Find unexpected connections between two topics |
+| \`/ghost\` | Answer a question in your voice, based on your writing |
+| \`/challenge\` | Pressure-test your beliefs — find contradictions and weak points |
+| \`/ideas\` | Generate ideas: tools to build, people to meet, topics to explore |
+| \`/graduate\` | Promote undeveloped ideas from daily notes into standalone files |
+| \`/drift\` | Surface recurring themes you might not be aware of |
+| \`/emerge\` | Find idea clusters coalescing into potential projects |
+| \`/schedule\` | Suggest a weekly schedule aligned with your priorities |
 CLAUDEEOF
 
   print_success "CLAUDE.md generated with vault-specific paths"
@@ -346,7 +363,7 @@ print_completion() {
   echo -e "  • 5 note templates"
   echo -e "  • 3 Maps of Content (navigation hubs)"
   echo -e "  • 5 how-to guides"
-  echo -e "  • 7 Claude Code slash commands"
+  echo -e "  • 19 Claude Code slash commands (7 core + 12 thinking partner)"
   echo -e "  • Obsidian config (graph colors, daily notes, templates, CSS snippet)"
   echo -e "  • CLAUDE.md (Claude Code context file)"
   echo ""

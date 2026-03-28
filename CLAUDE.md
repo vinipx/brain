@@ -19,7 +19,7 @@ brain/
 │   │   ├── maps/         # 3 MOC index notes
 │   │   └── guides/       # 5 how-to guides
 │   └── claude/
-│       └── commands/     # 7 slash command templates (use {{VAULT_FOLDER}} placeholders)
+│       └── commands/     # 19 slash command templates (use {{VAULT_FOLDER}} placeholders)
 ├── .gitignore
 └── LICENSE
 ```

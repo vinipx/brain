@@ -101,3 +101,159 @@ All commands are run inside Claude Code from your vault's root directory.
 - Reads the last 5 daily notes
 - Aggregates meetings, completed tasks, open tasks, project/presale activity
 - Creates `daily/YYYY-WNN-review.md`
+
+---
+
+# Thinking Partner Commands
+
+These commands turn your vault into an active thinking partner — they read your notes, find patterns, and help you think better.
+
+## /context
+
+**Loads your full life and work state into Claude.**
+
+```
+/context
+```
+
+- Scans active projects, presales, coding refs, recent daily notes, and people
+- Builds a comprehensive summary of your current state
+- Use at the start of any session where you want Claude to know everything
+
+## /today
+
+**Generates a prioritized plan for today.**
+
+```
+/today
+```
+
+- Reads today's daily note, previous 3 days, active projects, and presales
+- Builds a prioritized plan: Must Do, Should Do, Could Do
+- Surfaces carry-over tasks from previous days
+- Suggests creating a daily note if one doesn't exist
+
+## /closeday
+
+**End-of-day summary — the counterpart to /today.**
+
+```
+/closeday
+```
+
+- Reviews today's activity across daily notes, meetings, and projects
+- Appends an "End of Day" section with progress, carry-overs, and reflections
+- Marks completed tasks and surfaces what should carry over to tomorrow
+
+## /trace
+
+**Tracks how an idea evolved over time across your vault.**
+
+```
+/trace microservices migration
+/trace work-life balance
+```
+
+- Searches the entire vault for mentions of the topic
+- Sorts chronologically to show the idea's arc
+- Analyzes: when it first appeared, how it evolved, what it's connected to now
+
+## /connect
+
+**Finds unexpected connections between two topics.**
+
+```
+/connect machine learning and client onboarding
+/connect React and presale strategy
+```
+
+- Searches for both topics and builds a connection graph
+- Finds direct links, bridge notes, shared context, and temporal proximity
+- Surfaces non-obvious patterns
+
+## /ghost
+
+**Answers a question the way you would, based on your writing.**
+
+```
+/ghost Should we adopt Kubernetes?
+/ghost What's my management philosophy?
+```
+
+- Analyzes your voice, tone, values, and stated positions from your vault
+- Drafts a response in your style, referencing specific notes
+- Shows confidence levels: high (explicit), inferred (extrapolated), gaps
+
+## /challenge
+
+**Pressure-tests your beliefs — finds contradictions and weak points.**
+
+```
+/challenge our pricing strategy
+/challenge my career direction
+```
+
+- Catalogs your positions on the topic from across the vault
+- Finds contradictions, weak assumptions, missing perspectives
+- Provides a devil's advocate argument and specific recommendations
+
+## /ideas
+
+**Scans your vault for patterns and generates a full idea report.**
+
+```
+/ideas
+```
+
+- Reads daily notes (last 21 days), projects, presales, coding refs, meetings
+- Generates ideas across four categories: tools to build, people to reach out to, topics to investigate, things to write
+- Every idea is grounded in specific vault content
+
+## /graduate
+
+**Promotes undeveloped ideas from daily notes into standalone files.**
+
+```
+/graduate
+```
+
+- Scans daily notes from the last 14 days for ideas, insights, and recurring themes
+- Presents candidates with maturity assessment
+- Creates standalone project notes for approved ideas with context and connections
+- Updates the Projects MOC
+
+## /drift
+
+**Surfaces recurring themes you might not be aware of.**
+
+```
+/drift
+```
+
+- Scans the last 30 days of notes for recurring themes across unrelated contexts
+- Classifies drift as strong (3+ contexts), emerging (2 contexts), or fading
+- Interprets what your subconscious might be circling
+
+## /emerge
+
+**Finds idea clusters that could become projects, essays, or products.**
+
+```
+/emerge
+```
+
+- Maps wiki-links and shared themes across the vault
+- Identifies clusters: Ready to Launch, Forming, and Seeds
+- Recommends concrete next steps for each cluster
+
+## /schedule
+
+**Suggests a weekly schedule aligned with your priorities.**
+
+```
+/schedule
+```
+
+- Reads active projects, presales, recent daily notes, and weekly reviews
+- Compares stated priorities vs. actual time spent
+- Builds a day-by-day schedule with time budgets and conflict flags
