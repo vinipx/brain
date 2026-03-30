@@ -41,19 +41,7 @@
 
 ## Contents
 
-- [Highlights](#highlights)
-- [Quick Start](#quick-start)
-- [Demo](#demo)
-- [Architecture Modes](#architecture-modes)
-- [What You Get](#what-you-get)
-- [Slash Commands](#slash-commands)
-- [How It Works](#how-it-works)
-- [Use Cases](#use-cases)
-- [Why Brain?](#why-brain)
-- [Customization](#customization)
-- [Architecture](#architecture)
-- [Contributing](#contributing)
-- [License](#license)
+[Highlights](#highlights) · [Quick Start](#quick-start) · [Demo](#demo) · [Architecture Modes](#architecture-modes) · [What You Get](#what-you-get) · [Slash Commands](#slash-commands) · [How It Works](#how-it-works) · [Use Cases](#use-cases) · [Why Brain?](#why-brain) · [Customization](#customization) · [Architecture](#architecture) · [Contributing](#contributing) · [License](#license)
 
 ---
 
