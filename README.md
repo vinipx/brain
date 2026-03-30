@@ -50,32 +50,36 @@
 <table>
   <tr>
     <td align="center" width="33%">
-      <h3>Up to 26 Slash Commands</h3>
-      Core + thinking partner<br>
-      commands that turn your vault<br>
-      into an AI-powered second brain
+      <img src="https://img.shields.io/badge/up_to_26-Slash_Commands-5571FF?style=for-the-badge" alt="26 Slash Commands">
+      <br>
+      <sub>Core + thinking partner commands that<br>turn your vault into an AI-powered second brain</sub>
     </td>
     <td align="center" width="33%">
-      <h3>Up to 12 Note Templates</h3>
-      Daily notes, projects, meetings,<br>study subjects, health logs, finances —<br>all with structured frontmatter
+      <img src="https://img.shields.io/badge/up_to_12-Note_Templates-00CC00?style=for-the-badge" alt="12 Note Templates">
+      <br>
+      <sub>Daily notes, projects, meetings, study,<br>health, finances — structured frontmatter</sub>
     </td>
     <td align="center" width="33%">
-      <h3>Up to 9 Maps of Content</h3>
-      Navigate your vault through<br>Projects, Courses, Health, Finance<br>and more — navigation hubs
+      <img src="https://img.shields.io/badge/up_to_9-Maps_of_Content-FF8800?style=for-the-badge" alt="9 Maps of Content">
+      <br>
+      <sub>Navigate through Projects, Courses,<br>Health, Finance — navigation hubs</sub>
     </td>
   </tr>
   <tr>
     <td align="center">
-      <h3>3 Architecture Modes</h3>
-      Professional, Personal, or Both —<br>choose the vault structure<br>that fits your life
+      <img src="https://img.shields.io/badge/3-Architecture_Modes-AA55FF?style=for-the-badge" alt="3 Architecture Modes">
+      <br>
+      <sub>Professional, Personal, or Both —<br>choose the structure that fits your life</sub>
     </td>
     <td align="center">
-      <h3>Color-Coded Graph</h3>
-      Up to 14 colors mapped to folders —<br>see your knowledge network<br>at a glance in Obsidian
+      <img src="https://img.shields.io/badge/up_to_14-Color_Coded_Graph-CCCC00?style=for-the-badge" alt="Color-Coded Graph">
+      <br>
+      <sub>Colors mapped to folders — see your<br>knowledge network at a glance</sub>
     </td>
     <td align="center">
-      <h3>Auto-Linked Notes</h3>
-      Commands auto-create wiki-links,<br>contact notes, and MOC entries —<br>everything stays connected
+      <img src="https://img.shields.io/badge/auto-Linked_Notes-00CCCC?style=for-the-badge" alt="Auto-Linked Notes">
+      <br>
+      <sub>Commands auto-create wiki-links,<br>contacts, and MOC entries</sub>
     </td>
   </tr>
 </table>
