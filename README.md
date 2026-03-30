@@ -4,9 +4,9 @@
   <img src="assets/claude-logo.svg" alt="Claude Code" width="80" height="80">
 </p>
 
-<h1 align="center">
-  Brain
-</h1>
+<p align="center">
+  <img src="assets/brain-title.svg" alt="BRAIN" height="60">
+</p>
 
 <p align="center">
   <strong>Your second brain, wired for AI.</strong>
@@ -41,7 +41,7 @@
 
 ## Contents
 
-[Highlights](#highlights) · [Quick Start](#quick-start) · [Demo](#demo) · [Architecture Modes](#architecture-modes) · [What You Get](#what-you-get) · [Slash Commands](#slash-commands) · [How It Works](#how-it-works) · [Use Cases](#use-cases) · [Why Brain?](#why-brain) · [Customization](#customization) · [Architecture](#architecture) · [Contributing](#contributing) · [License](#license)
+[Highlights](#highlights) · [Quick Start](#quick-start) · [Demo](#demo) · [Architecture Modes](#architecture-modes) · [What You Get](#what-you-get) · [Slash Commands](#slash-commands) · [How It Works](#how-it-works) · [How Claude Loads Your Vault](#how-claude-loads-your-vault) · [Use Cases](#use-cases) · [Why Brain?](#why-brain) · [Customization](#customization) · [Architecture](#architecture) · [Contributing](#contributing) · [License](#license)
 
 ---
 
@@ -402,6 +402,86 @@ The Obsidian graph is color-coded by folder:
 | ![](https://img.shields.io/badge/-finances-CCAA00?style=flat-square) | `finances/` |
 | ![](https://img.shields.io/badge/-family-CC6600?style=flat-square) | `family/` |
 | ![](https://img.shields.io/badge/-hobby-CC33AA?style=flat-square) | `hobby/` |
+
+---
+
+## How Claude Loads Your Vault
+
+Brain's architecture is designed around **token efficiency**. Claude Code doesn't read your entire vault on every interaction — it uses a tiered loading system where each layer adds context only when needed.
+
+### Context Loading Layers
+
+```mermaid
+flowchart TD
+    L1["Layer 1 — Always Loaded\nCLAUDE.md (~1,200 tokens)\nMEMORY.md index (~50 tokens)"]
+    L2["Layer 2 — On Relevance\nMemory files (~200-400 tokens each)"]
+    L3["Layer 3 — On Invocation\nSlash commands (~250-650 tokens each)"]
+    L4["Layer 4 — On Demand\nVault notes (variable)"]
+
+    L1 -->|"every turn"| L2
+    L2 -->|"when relevant"| L3
+    L3 -->|"when you invoke"| L4
+
+    style L1 fill:#5571FF,color:#fff
+    style L2 fill:#00CC00,color:#fff
+    style L3 fill:#FF8800,color:#fff
+    style L4 fill:#AA55FF,color:#fff
+```
+
+| Layer | What | When Loaded | Token Cost |
+|-------|------|-------------|------------|
+| **1 — Always** | `CLAUDE.md` — vault structure, conventions, command reference | Every conversation turn | ~1,200 |
+| **1 — Always** | `MEMORY.md` index — pointers to memory files | Every conversation turn | ~50 |
+| **2 — Relevance** | Memory files — user preferences, project context, feedback | When the system deems them relevant | ~200–400 each |
+| **3 — Invocation** | Slash commands (`.claude/commands/*.md`) | Only when you type the command | ~250–650 each |
+| **4 — Demand** | Vault notes (daily, projects, people, etc.) | Only when a command or question requires it | Varies by file |
+
+### Token Budget by Scenario
+
+How much context different operations consume, approximately:
+
+| Scenario | Approx. Tokens | What Gets Read |
+|----------|---------------|----------------|
+| Normal chat (no commands) | ~1,300 | CLAUDE.md + memory index |
+| `/daily` | ~1,600 | + command + template |
+| `/vault-status` | 3,000–5,000 | + scans multiple folders |
+| `/today` | 5,000–8,000 | + recent daily notes + active items |
+| `/context` | 10,000–20,000 | + all active projects, commercials, people, 7 daily notes |
+| `/weekly-review` | 8,000–15,000 | + 5 daily notes with full content |
+
+> **Note:** These estimates assume a moderately active vault (~30-50 notes). A brand-new vault will be on the low end; a vault with hundreds of notes and long daily entries will trend higher.
+
+### Why This Architecture Is Token-Efficient
+
+<details>
+<summary><strong>Design principles behind the structure</strong></summary>
+
+- **`CLAUDE.md` is kept lean** (~4.6 KB) — it's loaded every turn, so every byte counts. It contains only structure, conventions, and command references — no content.
+
+- **Coding refs are lightweight pointers** — each `coding/*.md` note costs ~20 tokens. The actual repository (which could be millions of tokens) is only accessed when you ask a specific question. Claude follows the `repo-path` field on demand.
+
+- **MOCs serve as single-read indexes** — instead of scanning N project files to find what's active, Claude reads 1 MOC file to get the full list. This turns O(N) reads into O(1).
+
+- **`allowed-tools` in commands restricts exploration** — each slash command declares which tools it can use (e.g., `[Read, Glob, Grep]`), preventing Claude from making expensive tool calls that aren't needed for that operation.
+
+- **Memory persists across sessions without re-reading** — the memory system (`.claude/projects/.../memory/`) stores user preferences, project context, and feedback so Claude doesn't need to re-scan the vault to recall who you are or what you're working on.
+
+- **Frontmatter enables targeted filtering** — `type: project`, `status: active`, and `tags` fields let Claude grep for exactly what it needs instead of reading every file to classify it.
+
+</details>
+
+### Scaling Guidance
+
+As your vault grows, keep these patterns in mind:
+
+| Vault Size | Guidance |
+|------------|----------|
+| **0–50 notes** | No concerns. All commands run efficiently. |
+| **50–200 notes** | `/context` starts to get heavier. Consider using `/today` (lighter) for daily planning instead. |
+| **200+ notes** | Archive completed projects (set `status: completed`). Commands filter by `status: active`, so archived notes add zero token cost. |
+| **Long daily notes** | `/weekly-review` reads 5 full daily notes. If your dailies exceed 500 lines, the review will be token-heavy. Keep daily notes focused; use standalone `meetings/` notes for detailed meeting records. |
+
+> **Key insight:** The vault's token cost scales with *active* content, not total content. A vault with 500 notes but only 10 active projects costs roughly the same as a vault with 10 notes — for commands that filter by status.
 
 ---
 
