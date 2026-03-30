@@ -13,6 +13,10 @@
 </p>
 
 <p align="center">
+  <a href="https://buymeacoffee.com/vinipx"><img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" alt="Buy Me a Coffee"></a>
+</p>
+
+<p align="center">
   Scaffold an <a href="https://obsidian.md">Obsidian</a> vault integrated with <a href="https://claude.ai/code">Claude Code</a> in 30 seconds.<br>
   Choose <strong>Professional</strong>, <strong>Personal</strong>, or <strong>Both</strong> — get a fully-wired vault with daily notes, project tracking, health logging, study management, and more, all connected through wiki-links and powered by up to 26 slash commands.
 </p>
