@@ -1,0 +1,208 @@
+/* Folder icons and color highlights — matches tag-colors.css and graph color groups */
+
+/* ── Shared icon styling ─────────────────────────────────────── */
+.nav-folder-title[data-path] > .nav-folder-title-content::before {
+  display: inline-block;
+  margin-right: 4px;
+  font-size: 1em;
+}
+
+/* ── Shared folder row styling ───────────────────────────────── */
+.nav-folder-title[data-path="daily"],
+.nav-folder-title[data-path="projects"],
+.nav-folder-title[data-path="commercials"],
+.nav-folder-title[data-path="coding"],
+.nav-folder-title[data-path="meetings"],
+.nav-folder-title[data-path="study"],
+.nav-folder-title[data-path="courses"],
+.nav-folder-title[data-path="health"],
+.nav-folder-title[data-path="finances"],
+.nav-folder-title[data-path="family"],
+.nav-folder-title[data-path="hobby"],
+.nav-folder-title[data-path="maps"],
+.nav-folder-title[data-path="people"],
+.nav-folder-title[data-path="guides"],
+.nav-folder-title[data-path="_templates"] {
+  border-left: 3px solid transparent;
+  border-radius: 4px;
+}
+
+/* ── daily — Blue #1a4a7a ────────────────────────────────────── */
+.nav-folder-title[data-path="daily"] {
+  border-left-color: #1a4a7a;
+  background-color: rgba(26, 74, 122, 0.08);
+}
+.nav-folder-title[data-path="daily"] .nav-folder-title-content {
+  color: #5b9bd5;
+}
+.nav-folder-title[data-path="daily"] .nav-folder-title-content::before {
+  content: "📅 ";
+}
+
+/* ── projects — Green #2d5a27 ────────────────────────────────── */
+.nav-folder-title[data-path="projects"] {
+  border-left-color: #2d5a27;
+  background-color: rgba(45, 90, 39, 0.08);
+}
+.nav-folder-title[data-path="projects"] .nav-folder-title-content {
+  color: #6abf69;
+}
+.nav-folder-title[data-path="projects"] .nav-folder-title-content::before {
+  content: "🏗️ ";
+}
+
+/* ── commercials — Gold #8a6d00 ──────────────────────────────── */
+.nav-folder-title[data-path="commercials"] {
+  border-left-color: #8a6d00;
+  background-color: rgba(138, 109, 0, 0.08);
+}
+.nav-folder-title[data-path="commercials"] .nav-folder-title-content {
+  color: #d4a843;
+}
+.nav-folder-title[data-path="commercials"] .nav-folder-title-content::before {
+  content: "💰 ";
+}
+
+/* ── coding — Purple #4a1a6d ─────────────────────────────────── */
+.nav-folder-title[data-path="coding"] {
+  border-left-color: #4a1a6d;
+  background-color: rgba(74, 26, 109, 0.08);
+}
+.nav-folder-title[data-path="coding"] .nav-folder-title-content {
+  color: #b07cc6;
+}
+.nav-folder-title[data-path="coding"] .nav-folder-title-content::before {
+  content: "💻 ";
+}
+
+/* ── meetings — Brown #7a3b1a ────────────────────────────────── */
+.nav-folder-title[data-path="meetings"] {
+  border-left-color: #7a3b1a;
+  background-color: rgba(122, 59, 26, 0.08);
+}
+.nav-folder-title[data-path="meetings"] .nav-folder-title-content {
+  color: #c48a5a;
+}
+.nav-folder-title[data-path="meetings"] .nav-folder-title-content::before {
+  content: "🤝 ";
+}
+
+/* ── study — Purple #5a1a8a ──────────────────────────────────── */
+.nav-folder-title[data-path="study"] {
+  border-left-color: #5a1a8a;
+  background-color: rgba(90, 26, 138, 0.08);
+}
+.nav-folder-title[data-path="study"] .nav-folder-title-content {
+  color: #b07cc6;
+}
+.nav-folder-title[data-path="study"] .nav-folder-title-content::before {
+  content: "📚 ";
+}
+
+/* ── courses — Teal #0a5a6a ──────────────────────────────────── */
+.nav-folder-title[data-path="courses"] {
+  border-left-color: #0a5a6a;
+  background-color: rgba(10, 90, 106, 0.08);
+}
+.nav-folder-title[data-path="courses"] .nav-folder-title-content {
+  color: #5badc0;
+}
+.nav-folder-title[data-path="courses"] .nav-folder-title-content::before {
+  content: "🎓 ";
+}
+
+/* ── health — Rose #8a2a3a ───────────────────────────────────── */
+.nav-folder-title[data-path="health"] {
+  border-left-color: #8a2a3a;
+  background-color: rgba(138, 42, 58, 0.08);
+}
+.nav-folder-title[data-path="health"] .nav-folder-title-content {
+  color: #d46a7a;
+}
+.nav-folder-title[data-path="health"] .nav-folder-title-content::before {
+  content: "❤️ ";
+}
+
+/* ── finances — Gold #8a6d00 ─────────────────────────────────── */
+.nav-folder-title[data-path="finances"] {
+  border-left-color: #8a6d00;
+  background-color: rgba(138, 109, 0, 0.08);
+}
+.nav-folder-title[data-path="finances"] .nav-folder-title-content {
+  color: #d4a843;
+}
+.nav-folder-title[data-path="finances"] .nav-folder-title-content::before {
+  content: "💵 ";
+}
+
+/* ── family — Brown #7a4a1a ──────────────────────────────────── */
+.nav-folder-title[data-path="family"] {
+  border-left-color: #7a4a1a;
+  background-color: rgba(122, 74, 26, 0.08);
+}
+.nav-folder-title[data-path="family"] .nav-folder-title-content {
+  color: #c49a5a;
+}
+.nav-folder-title[data-path="family"] .nav-folder-title-content::before {
+  content: "👨‍👩‍👧‍👦 ";
+}
+
+/* ── hobby — Magenta #7a1a6d ─────────────────────────────────── */
+.nav-folder-title[data-path="hobby"] {
+  border-left-color: #7a1a6d;
+  background-color: rgba(122, 26, 109, 0.08);
+}
+.nav-folder-title[data-path="hobby"] .nav-folder-title-content {
+  color: #c46ab0;
+}
+.nav-folder-title[data-path="hobby"] .nav-folder-title-content::before {
+  content: "🎨 ";
+}
+
+/* ── maps — Red #6a1a1a ──────────────────────────────────────── */
+.nav-folder-title[data-path="maps"] {
+  border-left-color: #6a1a1a;
+  background-color: rgba(106, 26, 26, 0.08);
+}
+.nav-folder-title[data-path="maps"] .nav-folder-title-content {
+  color: #d46a6a;
+}
+.nav-folder-title[data-path="maps"] .nav-folder-title-content::before {
+  content: "🗺️ ";
+}
+
+/* ── people — Cyan #0a6a6a ───────────────────────────────────── */
+.nav-folder-title[data-path="people"] {
+  border-left-color: #0a6a6a;
+  background-color: rgba(10, 106, 106, 0.08);
+}
+.nav-folder-title[data-path="people"] .nav-folder-title-content {
+  color: #5bbdbd;
+}
+.nav-folder-title[data-path="people"] .nav-folder-title-content::before {
+  content: "👥 ";
+}
+
+/* ── guides — Indigo #3a3a7a ─────────────────────────────────── */
+.nav-folder-title[data-path="guides"] {
+  border-left-color: #3a3a7a;
+  background-color: rgba(58, 58, 122, 0.08);
+}
+.nav-folder-title[data-path="guides"] .nav-folder-title-content {
+  color: #8a8ad4;
+}
+.nav-folder-title[data-path="guides"] .nav-folder-title-content::before {
+  content: "📖 ";
+}
+
+/* ── _templates — Gray (neutral) ─────────────────────────────── */
+.nav-folder-title[data-path="_templates"] {
+  border-left-color: #6a6a6a;
+  background-color: rgba(106, 106, 106, 0.06);
+}
+.nav-folder-title[data-path="_templates"] .nav-folder-title-content {
+  color: #a0a0a0;
+}
+.nav-folder-title[data-path="_templates"] .nav-folder-title-content::before {
+  content: "📋 ";
+}

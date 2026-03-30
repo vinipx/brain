@@ -218,9 +218,11 @@ install_obsidian_config() {
   if [ "$ARCHITECTURE" = "both" ]; then
     cp "$TEMPLATES_DIR/obsidian/both/"*.json "$obsidian_dir/"
     cp "$TEMPLATES_DIR/obsidian/both/snippets/tag-colors.css" "$obsidian_dir/snippets/"
+    cp "$TEMPLATES_DIR/obsidian/both/snippets/folder-styles.css" "$obsidian_dir/snippets/"
   else
     cp "$TEMPLATES_DIR/obsidian/$ARCHITECTURE/"*.json "$obsidian_dir/"
     cp "$TEMPLATES_DIR/obsidian/$ARCHITECTURE/snippets/tag-colors.css" "$obsidian_dir/snippets/"
+    cp "$TEMPLATES_DIR/obsidian/$ARCHITECTURE/snippets/folder-styles.css" "$obsidian_dir/snippets/"
   fi
 
   print_success "Obsidian config, graph colors, and CSS snippets installed"
@@ -602,8 +604,8 @@ print_completion() {
   echo -e "     Open Obsidian → Open folder as vault → select:"
   echo -e "     ${GREEN}$INSTALL_DIR/$VAULT_FOLDER${NC}"
   echo ""
-  echo -e "  2. ${CYAN}Enable CSS snippet:${NC}"
-  echo -e "     Settings → Appearance → CSS snippets → enable ${BOLD}tag-colors${NC}"
+  echo -e "  2. ${CYAN}Enable CSS snippets:${NC}"
+  echo -e "     Settings → Appearance → CSS snippets → enable ${BOLD}tag-colors${NC} and ${BOLD}folder-styles${NC}"
   echo ""
   echo -e "  3. ${CYAN}Start Claude Code:${NC}"
   echo -e "     ${GREEN}cd $INSTALL_DIR && claude${NC}"

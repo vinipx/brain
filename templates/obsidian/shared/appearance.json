@@ -1,6 +1,7 @@
 {
   "accentColor": "#fdd568",
   "enabledCssSnippets": [
-    "tag-colors"
+    "tag-colors",
+    "folder-styles"
   ]
 }

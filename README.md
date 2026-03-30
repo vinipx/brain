@@ -118,7 +118,7 @@ The interactive setup prompts for:
 ### After Setup
 
 1. **Open Obsidian** — "Open folder as vault" — select the vault folder
-2. **Enable CSS** — Settings > Appearance > CSS snippets > enable `tag-colors`
+2. **Enable CSS** — Settings > Appearance > CSS snippets > enable `tag-colors` and `folder-styles`
 3. **Start Claude Code** — `cd ~/Documents/brain && claude`
 4. **Try it** — type `/daily` to create your first daily note
 
@@ -1505,6 +1505,10 @@ Add `.md` files to `.claude/commands/`. Use YAML frontmatter for `description` a
 <summary><strong>CSS Snippets</strong></summary>
 
 Add `.css` files to `vault/.obsidian/snippets/`. Enable them in Obsidian Settings > Appearance > CSS snippets.
+
+**Included snippets:**
+- `tag-colors` — Color-coded tag badges matching graph view colors
+- `folder-styles` — Emoji icons, colored borders, and tinted backgrounds for folders in the file explorer
 
 </details>
 
