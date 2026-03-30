@@ -45,7 +45,7 @@
 
 ## Contents
 
-[Highlights](#highlights) · [Quick Start](#quick-start) · [Demo](#demo) · [Architecture Modes](#architecture-modes) · [What You Get](#what-you-get) · [Slash Commands](#slash-commands) · [How It Works](#how-it-works) · [How Claude Loads Your Vault](#how-claude-loads-your-vault) · [Use Cases](#use-cases) · [Why Brain?](#why-brain) · [Customization](#customization) · [Architecture](#architecture) · [Contributing](#contributing) · [License](#license)
+[Highlights](#highlights) · [Quick Start](#quick-start) · [Demo](#demo) · [Architecture Modes](#architecture-modes) · [What You Get](#what-you-get) · [Slash Commands](#slash-commands) · [How It Works](#how-it-works) · [How Claude Loads Your Vault](#how-claude-loads-your-vault) · [Use Cases](#use-cases) · [Why Obsidian?](#why-obsidian) · [Why Brain?](#why-brain) · [Customization](#customization) · [Architecture](#architecture) · [Contributing](#contributing) · [License](#license)
 
 ---
 
@@ -1457,6 +1457,16 @@ Use `/connect portugal and food` to surface restaurant recommendations from your
 **Value:** Travel planning scattered across browser tabs, spreadsheets, and group chats comes together in one place with budget tracking alongside.
 
 </details>
+
+---
+
+## Why Obsidian?
+
+Brain is a folder of plain Markdown files. It works without any app — Claude Code can create, search, and link notes on its own.
+
+**Obsidian adds the visual layer**: graph view, clickable `[[wiki-links]]`, backlinks, and frontmatter search. Claude Code writes the notes; Obsidian makes them browsable.
+
+It fits because it reads Markdown directly from disk — no sync, no conversion, no proprietary format. What Claude Code writes is exactly what Obsidian renders.
 
 ---
 
