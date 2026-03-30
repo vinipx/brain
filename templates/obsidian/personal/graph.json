@@ -17,7 +17,8 @@
     { "query": "path:hobby", "color": { "a": 1, "rgb": 16711935 } },
     { "query": "path:maps", "color": { "a": 1, "rgb": 11141120 } },
     { "query": "path:guides", "color": { "a": 1, "rgb": 8388863 } },
-    { "query": "path:people", "color": { "a": 1, "rgb": 52479 } }
+    { "query": "path:people", "color": { "a": 1, "rgb": 52479 } },
+    { "query": "path:_analytics", "color": { "a": 1, "rgb": 13408512 } }
   ],
   "collapse-display": true,
   "showArrow": false,

@@ -22,7 +22,8 @@
 .nav-folder-title[data-path="maps"],
 .nav-folder-title[data-path="people"],
 .nav-folder-title[data-path="guides"],
-.nav-folder-title[data-path="_templates"] {
+.nav-folder-title[data-path="_templates"],
+.nav-folder-title[data-path="_analytics"] {
   border-left: 3px solid transparent;
   border-radius: 4px;
 }
@@ -193,6 +194,18 @@
 }
 .nav-folder-title[data-path="guides"] .nav-folder-title-content::before {
   content: "📖 ";
+}
+
+/* ── _analytics — Amber #8a5a00 ──────────────────────────────── */
+.nav-folder-title[data-path="_analytics"] {
+  border-left-color: #8a5a00;
+  background-color: rgba(138, 90, 0, 0.08);
+}
+.nav-folder-title[data-path="_analytics"] .nav-folder-title-content {
+  color: #d4a020;
+}
+.nav-folder-title[data-path="_analytics"] .nav-folder-title-content::before {
+  content: "📊 ";
 }
 
 /* ── _templates — Gray (neutral) ─────────────────────────────── */

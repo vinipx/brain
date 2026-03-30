@@ -11,6 +11,8 @@ a.tag[href="#/tags/moc"]       { background-color: #6a1a1a; color: white; }
 a.tag[href="#/tags/guide"]     { background-color: #3a3a7a; color: white; }
 a.tag[href="#/tags/getting-started"] { background-color: #3a3a7a; color: white; }
 a.tag[href="#/tags/weekly-review"]   { background-color: #1a4a7a; color: white; }
+a.tag[href="#/tags/analytics"]{ background-color: #8a5a00; color: white; }
+a.tag[href="#/tags/sessions"] { background-color: #8a5a00; color: white; }
 a.tag[href="#/tags/person"]    { background-color: #0a5a5a; color: white; }
 
 /* Round the tag badges */

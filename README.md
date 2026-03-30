@@ -45,7 +45,7 @@
 
 ## Contents
 
-[Highlights](#highlights) · [Quick Start](#quick-start) · [Demo](#demo) · [Architecture Modes](#architecture-modes) · [What You Get](#what-you-get) · [Slash Commands](#slash-commands) · [How It Works](#how-it-works) · [How Claude Loads Your Vault](#how-claude-loads-your-vault) · [Use Cases](#use-cases) · [Why Obsidian?](#why-obsidian) · [Why Brain?](#why-brain) · [Customization](#customization) · [Architecture](#architecture) · [Contributing](#contributing) · [License](#license)
+[Highlights](#highlights) · [Quick Start](#quick-start) · [Demo](#demo) · [Architecture Modes](#architecture-modes) · [What You Get](#what-you-get) · [Slash Commands](#slash-commands) · [Session Analytics & Cost Tracking](#session-analytics--cost-tracking) · [How It Works](#how-it-works) · [How Claude Loads Your Vault](#how-claude-loads-your-vault) · [Use Cases](#use-cases) · [Why Obsidian?](#why-obsidian) · [Why Brain?](#why-brain) · [Customization](#customization) · [Architecture](#architecture) · [Contributing](#contributing) · [License](#license)
 
 ---
 
@@ -330,7 +330,8 @@ Available in **all** architecture modes. These commands turn your vault into an 
 |---------|-------------|---------|
 | `/context` | Load your full state into Claude | `/context` |
 | `/today` | Generate a prioritized plan for today | `/today` |
-| `/closeday` | End-of-day summary — progress, carry-overs, reflections | `/closeday` |
+| `/closeday` | End-of-day summary — progress, carry-overs, reflections, token costs | `/closeday` |
+| `/session-stats` | Show today's Claude Code token usage and estimated costs | `/session-stats` |
 | `/trace` | Track how an idea evolved over time across your vault | `/trace microservices migration` |
 | `/connect` | Find unexpected connections between two topics | `/connect machine learning and client onboarding` |
 | `/ghost` | Answer a question in your voice, based on your writing | `/ghost Should we adopt Kubernetes?` |
@@ -340,6 +341,83 @@ Available in **all** architecture modes. These commands turn your vault into an 
 | `/drift` | Surface recurring themes you might not be aware of | `/drift` |
 | `/emerge` | Find idea clusters coalescing into potential projects | `/emerge` |
 | `/schedule` | Suggest a weekly schedule aligned with your priorities | `/schedule` |
+
+---
+
+## Session Analytics & Cost Tracking
+
+Brain tracks your Claude Code usage automatically — every session, every token, every dollar — and stores it as queryable Obsidian notes. No external dashboards, no third-party services. Your data stays in your vault.
+
+### Why This Matters
+
+AI costs add up. Whether you're a solo developer watching your Claude bill or a team lead reporting AI spend to management, Brain gives you visibility:
+
+- **Per-session breakdowns** — tokens in/out, cache usage, estimated cost
+- **Daily summaries** — total sessions, aggregate cost, models used
+- **Historical trends** — Dataview-queryable frontmatter for weekly/monthly reporting
+- **User-editable pricing** — update token rates in a single Obsidian note when pricing changes
+
+### How It Works
+
+**During the day**: Run `/session-stats` anytime to see your current token usage and costs.
+
+**End of day**: `/closeday` automatically:
+1. Finds all Claude Code sessions for your vault (handles multiple concurrent instances)
+2. Parses token usage from `~/.claude/` session files
+3. Calculates costs using your `token-pricing.md` config
+4. Creates a structured analytics note at `_analytics/sessions/YYYY-MM-DD.md`
+5. Appends a usage summary to your daily note
+
+### Analytics Note Structure
+
+Each daily analytics note includes rich frontmatter for Obsidian queries:
+
+```yaml
+---
+date: "2026-03-30"
+type: session-analytics
+tags: [analytics, sessions]
+total_sessions: 3
+total_input_tokens: 52100
+total_output_tokens: 18900
+total_cache_read_tokens: 892000
+total_cost_usd: 3.12
+models_used: [claude-opus-4-6, claude-sonnet-4-6]
+---
+```
+
+### Querying Your Data
+
+With the [Dataview](https://github.com/blacksmithgu/obsidian-dataview) plugin, you can build dashboards directly in Obsidian:
+
+```dataview
+TABLE total_sessions AS "Sessions", total_cost_usd AS "Cost ($)", total_input_tokens AS "Input Tokens"
+FROM #analytics/sessions
+SORT date DESC
+LIMIT 7
+```
+
+| Date | Sessions | Cost ($) | Input Tokens |
+|------|----------|----------|-------------|
+| 2026-03-27 | 1 | 1.02 | 19,800 |
+| 2026-03-26 | 2 | 2.58 | 41,200 |
+| 2026-03-25 | 3 | 4.18 | 62,100 |
+| 2026-03-24 | 2 | 2.42 | 38,900 |
+| ... | ... | ... | ... |
+
+### Token Pricing Config
+
+Pricing lives in `_analytics/token-pricing.md` — a plain Markdown table you can edit anytime:
+
+| Model | Input $/1M | Output $/1M | Cache Read $/1M | Cache Write $/1M |
+|-------|-----------|------------|----------------|-----------------|
+| claude-opus-4-6 | 15.00 | 75.00 | 1.50 | 18.75 |
+| claude-sonnet-4-6 | 3.00 | 15.00 | 0.30 | 3.75 |
+| claude-haiku-4-5 | 0.80 | 4.00 | 0.08 | 1.00 |
+
+### Demo Data
+
+Running `demo.sh` generates 20 days of realistic session analytics to showcase the feature — varying session counts (1-4/day), mixed models, and costs ranging from $0.72 to $6.34 per day.
 
 ---
 

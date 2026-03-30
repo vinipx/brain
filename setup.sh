@@ -181,6 +181,7 @@ create_directories() {
   mkdir -p "$vault_root/daily"
   mkdir -p "$vault_root/maps"
   mkdir -p "$vault_root/guides"
+  mkdir -p "$vault_root/_analytics/sessions"
 
   # Architecture-specific folders
   if [ "$ARCHITECTURE" = "professional" ] || [ "$ARCHITECTURE" = "both" ]; then
@@ -274,6 +275,10 @@ install_vault_content() {
   local guide_count
   guide_count=$(ls -1 "$vault_root/guides/"*.md 2>/dev/null | wc -l | tr -d ' ')
   print_success "$guide_count guide files installed"
+
+  # Analytics — token pricing config
+  cp "$TEMPLATES_DIR/vault/_templates/shared/token-pricing.md" "$vault_root/_analytics/"
+  print_success "Analytics folder with token pricing config installed"
 }
 
 install_claude_commands() {
@@ -316,16 +321,19 @@ install_claude_commands() {
   if [ "$ARCHITECTURE" = "professional" ]; then
     print_success "  Core: /daily, /add-meeting, /new-project, /new-commercial, /link-coding, /vault-status, /weekly-review"
     print_success "  Thinking: /context, /today, /closeday, /trace, /connect, /ghost, /challenge"
+    print_success "  Analytics: /session-stats"
     print_success "  Discovery: /ideas, /graduate, /drift, /emerge, /schedule"
   elif [ "$ARCHITECTURE" = "personal" ]; then
     print_success "  Core: /daily, /new-personal-project, /new-study, /new-course, /log-health, /new-finance, /new-family-event, /new-hobby, /vault-status, /weekly-review"
     print_success "  Thinking: /context, /today, /closeday, /trace, /connect, /ghost, /challenge"
+    print_success "  Analytics: /session-stats"
     print_success "  Discovery: /ideas, /graduate, /drift, /emerge, /schedule"
   else
     print_success "  Professional: /new-project, /new-commercial, /link-coding, /add-meeting"
     print_success "  Personal: /new-personal-project, /new-study, /new-course, /log-health, /new-finance, /new-family-event, /new-hobby"
     print_success "  Shared: /daily, /vault-status, /weekly-review, /trace, /connect, /ghost, /challenge"
     print_success "  Thinking: /context, /today, /closeday"
+    print_success "  Analytics: /session-stats"
     print_success "  Discovery: /ideas, /graduate, /drift, /emerge, /schedule"
   fi
 }
@@ -339,6 +347,8 @@ generate_claude_md() {
     professional)
       vault_structure="$VAULT_FOLDER/
 ├── _templates/       # Note templates — do not edit directly, use slash commands
+├── _analytics/       # Claude Code session analytics and cost tracking
+│   └── sessions/     # Daily session notes with token/cost breakdowns
 ├── daily/            # Daily notes: YYYY-MM-DD.md
 ├── projects/         # Work project tracking notes
 ├── commercials/      # Commercial engagement notes
@@ -352,6 +362,8 @@ generate_claude_md() {
     personal)
       vault_structure="$VAULT_FOLDER/
 ├── _templates/       # Note templates — do not edit directly, use slash commands
+├── _analytics/       # Claude Code session analytics and cost tracking
+│   └── sessions/     # Daily session notes with token/cost breakdowns
 ├── daily/            # Daily notes: YYYY-MM-DD.md
 ├── projects/         # Personal project tracking notes
 ├── study/            # School and university subject notes
@@ -368,6 +380,8 @@ generate_claude_md() {
     both)
       vault_structure="$VAULT_FOLDER/
 ├── _templates/       # Note templates — do not edit directly, use slash commands
+├── _analytics/       # Claude Code session analytics and cost tracking
+│   └── sessions/     # Daily session notes with token/cost breakdowns
 ├── daily/            # Daily notes: YYYY-MM-DD.md
 ├── projects/         # Project tracking notes (work and personal)
 ├── commercials/      # Commercial engagement notes
@@ -464,6 +478,7 @@ Notes in \`coding/\` are **lightweight pointers** to local repositories. Use \`/
 | \`/context\` | Load your full life and work state into Claude |
 | \`/today\` | Generate a prioritized plan for today |
 | \`/closeday\` | End-of-day summary — progress, carry-overs, reflections |
+| \`/session-stats\` | Show today's Claude Code token usage and estimated costs |
 | \`/trace\` | Track how an idea evolved over time across your vault |
 | \`/connect\` | Find unexpected connections between two topics |
 | \`/ghost\` | Answer a question in your voice, based on your writing |
@@ -490,6 +505,7 @@ Notes in \`coding/\` are **lightweight pointers** to local repositories. Use \`/
 | \`/context\` | Load your full personal state into Claude |
 | \`/today\` | Generate a prioritized plan for today |
 | \`/closeday\` | End-of-day summary — progress, reflections, gratitude |
+| \`/session-stats\` | Show today's Claude Code token usage and estimated costs |
 | \`/trace\` | Track how an idea evolved over time across your vault |
 | \`/connect\` | Find unexpected connections between two topics |
 | \`/ghost\` | Answer a question in your voice, based on your writing |
@@ -520,6 +536,7 @@ Notes in \`coding/\` are **lightweight pointers** to local repositories. Use \`/
 | \`/context\` | Load your full life and work state into Claude |
 | \`/today\` | Generate a prioritized plan for today |
 | \`/closeday\` | End-of-day summary — progress, carry-overs, reflections |
+| \`/session-stats\` | Show today's Claude Code token usage and estimated costs |
 | \`/trace\` | Track how an idea evolved over time across your vault |
 | \`/connect\` | Find unexpected connections between two topics |
 | \`/ghost\` | Answer a question in your voice, based on your writing |

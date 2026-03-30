@@ -20,7 +20,7 @@ brain/
 │   │   └── both/         # Combined graph colors, tag colors
 │   ├── vault/            # Vault content (templates, MOCs, guides)
 │   │   ├── _templates/
-│   │   │   ├── shared/       # daily-note.md (minimal version)
+│   │   │   ├── shared/       # daily-note.md (minimal version), token-pricing.md
 │   │   │   ├── professional/ # project, commercial, coding-project, meeting
 │   │   │   └── personal/     # personal-project, study, course, health-log, finance, family-event, hobby, daily-note (extended)
 │   │   ├── maps/
@@ -33,7 +33,7 @@ brain/
 │   │       └── both/         # Getting Started, Slash Commands Reference, Use Cases
 │   └── claude/
 │       └── commands/
-│           ├── shared/       # 5 architecture-agnostic commands (daily, challenge, ghost, trace, connect)
+│           ├── shared/       # 6 architecture-agnostic commands (daily, challenge, ghost, trace, connect, session-stats)
 │           ├── professional/ # 14 professional commands (entity + arch-variant)
 │           ├── personal/     # 17 personal commands (entity + arch-variant)
 │           └── both/         # 10 combined-mode variants (scan all folders)
