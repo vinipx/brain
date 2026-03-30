@@ -24,6 +24,7 @@ VAULT_NAME=""
 INSTALL_DIR=""
 VAULT_FOLDER=""
 CODING_DIR=""
+INSTALL_DATAVIEW=""
 
 print_header() {
   echo ""
@@ -140,6 +141,16 @@ prompt_config() {
     fi
   fi
 
+  # Dataview plugin (optional)
+  echo ""
+  echo -e "  ${CYAN}Optional:${NC} Install the ${BOLD}Dataview${NC} community plugin."
+  echo -e "  Enables analytics dashboards and advanced queries over your vault notes."
+  read -rp "  Install Dataview plugin? [Y/n]: " DATAVIEW_CHOICE
+  DATAVIEW_CHOICE="${DATAVIEW_CHOICE:-Y}"
+  if [[ "$DATAVIEW_CHOICE" =~ ^[Yy]$ ]]; then
+    INSTALL_DATAVIEW="yes"
+  fi
+
   # Confirm
   echo ""
   echo -e "${BOLD}Summary:${NC}"
@@ -153,6 +164,11 @@ prompt_config() {
     else
       echo -e "  Coding projects:   ${YELLOW}skipped${NC}"
     fi
+  fi
+  if [ -n "$INSTALL_DATAVIEW" ]; then
+    echo -e "  Dataview plugin:   ${GREEN}yes${NC}"
+  else
+    echo -e "  Dataview plugin:   ${YELLOW}skipped${NC}"
   fi
   echo ""
 
@@ -168,7 +184,7 @@ prompt_config() {
 # Installation
 # ──────────────────────────────────────────────────────────────────────────────
 
-TOTAL_STEPS=6
+TOTAL_STEPS=7
 
 create_directories() {
   print_step 1 "Creating directory structure"
@@ -229,8 +245,69 @@ install_obsidian_config() {
   print_success "Obsidian config, graph colors, and CSS snippets installed"
 }
 
+install_community_plugins() {
+  print_step 3 "Installing community plugins"
+
+  if [ -z "$INSTALL_DATAVIEW" ]; then
+    print_warn "Dataview plugin skipped (user opted out)"
+    return
+  fi
+
+  local obsidian_dir="$INSTALL_DIR/$VAULT_FOLDER/.obsidian"
+  local plugin_dir="$obsidian_dir/plugins/dataview"
+  mkdir -p "$plugin_dir"
+
+  # Download latest Dataview release from GitHub
+  local repo="blacksmithgu/obsidian-dataview"
+  local api_url="https://api.github.com/repos/$repo/releases/latest"
+
+  print_success "Downloading Dataview plugin from GitHub..."
+
+  local release_json
+  release_json=$(curl -sf "$api_url" 2>/dev/null) || {
+    print_warn "Could not reach GitHub API — skipping Dataview install"
+    print_warn "You can install it manually: Obsidian → Settings → Community plugins → Browse → Dataview"
+    rm -rf "$plugin_dir"
+    return
+  }
+
+  # Extract download URLs for each asset
+  local main_js_url manifest_url styles_url
+  main_js_url=$(echo "$release_json" | grep '"browser_download_url"' | grep 'main\.js"' | head -1 | cut -d '"' -f 4)
+  manifest_url=$(echo "$release_json" | grep '"browser_download_url"' | grep 'manifest\.json"' | head -1 | cut -d '"' -f 4)
+  styles_url=$(echo "$release_json" | grep '"browser_download_url"' | grep 'styles\.css"' | head -1 | cut -d '"' -f 4)
+
+  if [ -z "$main_js_url" ] || [ -z "$manifest_url" ]; then
+    print_warn "Could not parse Dataview release assets — skipping"
+    print_warn "Install manually: Obsidian → Settings → Community plugins → Browse → Dataview"
+    rm -rf "$plugin_dir"
+    return
+  fi
+
+  # Download plugin files
+  curl -sfL -o "$plugin_dir/main.js" "$main_js_url" && \
+  curl -sfL -o "$plugin_dir/manifest.json" "$manifest_url" || {
+    print_warn "Download failed — skipping Dataview install"
+    print_warn "Install manually: Obsidian → Settings → Community plugins → Browse → Dataview"
+    rm -rf "$plugin_dir"
+    return
+  }
+
+  # styles.css is optional — download if available
+  if [ -n "$styles_url" ]; then
+    curl -sfL -o "$plugin_dir/styles.css" "$styles_url" 2>/dev/null || true
+  fi
+
+  # Enable the plugin in community-plugins.json
+  echo '["dataview"]' > "$obsidian_dir/community-plugins.json"
+
+  local version
+  version=$(grep '"version"' "$plugin_dir/manifest.json" 2>/dev/null | head -1 | cut -d '"' -f 4)
+  print_success "Dataview plugin v${version:-latest} installed and enabled"
+}
+
 install_vault_content() {
-  print_step 3 "Installing vault templates, MOCs, and guides"
+  print_step 4 "Installing vault templates, MOCs, and guides"
 
   local vault_root="$INSTALL_DIR/$VAULT_FOLDER"
   local template_count=0
@@ -282,7 +359,7 @@ install_vault_content() {
 }
 
 install_claude_commands() {
-  print_step 4 "Installing Claude Code slash commands"
+  print_step 5 "Installing Claude Code slash commands"
 
   local commands_dir="$INSTALL_DIR/.claude/commands"
 
@@ -339,7 +416,7 @@ install_claude_commands() {
 }
 
 generate_claude_md() {
-  print_step 5 "Generating CLAUDE.md"
+  print_step 6 "Generating CLAUDE.md"
 
   # Build vault structure diagram based on architecture
   local vault_structure=""
@@ -608,7 +685,7 @@ CLAUDEEOF
 }
 
 print_completion() {
-  print_step 6 "Setup complete!"
+  print_step 7 "Setup complete!"
 
   echo ""
   echo -e "${GREEN}${BOLD}╔══════════════════════════════════════════════════╗${NC}"
@@ -671,8 +748,16 @@ print_completion() {
   echo -e "  • $guide_count how-to guides"
   echo -e "  • $cmd_count Claude Code slash commands"
   echo -e "  • Obsidian config (graph colors, daily notes, templates, CSS snippet)"
+  if [ -n "$INSTALL_DATAVIEW" ] && [ -f "$INSTALL_DIR/$VAULT_FOLDER/.obsidian/plugins/dataview/main.js" ]; then
+    echo -e "  • Dataview community plugin (analytics dashboards)"
+  fi
   echo -e "  • CLAUDE.md (Claude Code context file)"
   echo ""
+  if [ -n "$INSTALL_DATAVIEW" ] && [ -f "$INSTALL_DIR/$VAULT_FOLDER/.obsidian/plugins/dataview/main.js" ]; then
+    echo -e "  ${YELLOW}Note:${NC} Obsidian will ask you to ${BOLD}\"Trust author and enable plugins\"${NC} on first open."
+    echo -e "  This is needed for the Dataview plugin to work."
+    echo ""
+  fi
 }
 
 # ──────────────────────────────────────────────────────────────────────────────
@@ -692,6 +777,7 @@ main() {
 
   create_directories
   install_obsidian_config
+  install_community_plugins
   install_vault_content
   install_claude_commands
   generate_claude_md
