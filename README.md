@@ -43,6 +43,7 @@
 
 - [Highlights](#highlights)
 - [Quick Start](#quick-start)
+- [Demo](#demo)
 - [Architecture Modes](#architecture-modes)
 - [What You Get](#what-you-get)
 - [Slash Commands](#slash-commands)
@@ -124,6 +125,50 @@ The interactive setup prompts for:
 2. **Enable CSS** — Settings > Appearance > CSS snippets > enable `tag-colors`
 3. **Start Claude Code** — `cd ~/Documents/brain && claude`
 4. **Try it** — type `/daily` to create your first daily note
+
+---
+
+## Demo
+
+See what your vault looks like after 4 weeks of use — before you write a single note yourself.
+
+`demo.sh` populates your vault with realistic synthetic data for a fictional persona (Alex Chen, lead software engineer): 20 daily notes, projects, meetings, people, health logs, finances, and more — all cross-linked with wiki-links to produce a rich Obsidian graph.
+
+```bash
+# 1. Run setup first
+./setup.sh
+
+# 2. Then populate with demo data
+./demo.sh
+
+# Or non-interactively (same args as setup.sh):
+./demo.sh ~/Documents/brain vault both
+```
+
+The demo script is idempotent — safe to re-run. It skips files that already exist and always refreshes the MOC index notes.
+
+<p align="center">
+  <img src="assets/demo-obsidian-graph.png" alt="Brain vault graph view — demo data" width="800">
+  <br>
+  <em>Obsidian graph view after running <code>demo.sh</code> with the Both architecture</em>
+</p>
+
+### Quick Access — Shell Alias
+
+Add this to your `~/.zshrc` or `~/.bashrc` to open your Brain vault and start Claude Code with a single command:
+
+```bash
+alias brain="cd ~/Documents/brain && claude"
+```
+
+Then reload your shell and type `brain` from anywhere:
+
+```bash
+source ~/.zshrc   # or ~/.bashrc
+brain             # opens Claude Code in your vault directory
+```
+
+> **Tip:** Adjust the path to match your install directory if you chose a custom location during setup.
 
 ---
 
