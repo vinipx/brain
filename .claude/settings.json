@@ -1,0 +1,8 @@
+{
+  "allowedTools": [
+    "Read",
+    "Glob",
+    "Grep",
+    "Bash(ls:*)"
+  ]
+}
